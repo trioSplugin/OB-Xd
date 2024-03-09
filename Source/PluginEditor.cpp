@@ -1029,6 +1029,30 @@ void ObxdAudioProcessorEditor::createMenu ()
             resized();
         });
     menu->addSubMenu("Tooltips", tooltipMenu, true);
+    
+    enum class Homie
+    {
+		sagar,
+		swayam,
+		sakar
+	};
+
+    static Homie selected_homie = Homie::sagar;
+
+    PopupMenu homiesMenu;
+    homiesMenu.addItem("sagar", true, selected_homie == Homie::sagar, [&]
+        {
+            selected_homie = Homie::sagar;
+        });
+    homiesMenu.addItem("swayam", true, selected_homie == Homie::swayam, [&]
+        {
+            selected_homie = Homie::swayam;
+        });
+    homiesMenu.addItem("sakar", true, selected_homie == Homie::sakar, [&]
+        {
+            selected_homie = Homie::sakar;
+        });
+    menu->addSubMenu("Homies", homiesMenu, true);
 
 #ifdef LINUX
     menu->addItem(1, String("Release ") +  String(JucePlugin_VersionString).dropLastCharacters(2), false);
