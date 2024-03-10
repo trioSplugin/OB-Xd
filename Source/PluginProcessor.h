@@ -116,6 +116,13 @@ enum class Tooltip
 	StandardDisplay,
 	FullDisplay
 };
+
+enum class Homie
+{
+	sagar,
+	swayam,
+	sakar
+};
 //==============================================================================
 /**
 */
@@ -208,6 +215,8 @@ public:
     void setGuiSize(const int gui_size);
 	Tooltip getTooltipBehavior() const;
 	void setTooltipBehavior(const Tooltip tooltip);
+	Homie getCurrentHomie() const;
+	void setCurrentHomie(const Homie homie);
     //==============================================================================
     static String getEngineParameterId (size_t);
 	static String getTrueParameterValueFromNormalizedRange(size_t, float normalizedValue);
@@ -264,6 +273,7 @@ private:
 	Array<File> bankFiles;
     Array<File> skinFiles;
 	Tooltip tooltipBehavior;
+	Homie homie;
 
     std::unique_ptr<PropertiesFile> config;
 	InterProcessLock configLock;

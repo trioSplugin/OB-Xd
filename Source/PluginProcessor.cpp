@@ -903,6 +903,18 @@ void ObxdAudioProcessor::setTooltipBehavior(const Tooltip tooltip)
     config->setNeedsToBeSaved(true);
 }
 
+Homie ObxdAudioProcessor::getCurrentHomie() const
+{
+    return homie;
+}
+
+void ObxdAudioProcessor::setCurrentHomie(const Homie homie)
+{
+	this->homie = homie;
+	//config->setValue("homie", static_cast<int>(homie));
+	//config->setNeedsToBeSaved(true);
+}
+
 //==============================================================================
 String ObxdAudioProcessor::getEngineParameterId (size_t index)
 {

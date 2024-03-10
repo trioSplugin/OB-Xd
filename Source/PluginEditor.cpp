@@ -1029,28 +1029,19 @@ void ObxdAudioProcessorEditor::createMenu ()
             resized();
         });
     menu->addSubMenu("Tooltips", tooltipMenu, true);
-    
-    enum class Homie
-    {
-		sagar,
-		swayam,
-		sakar
-	};
-
-    static Homie selected_homie = Homie::sagar;
 
     PopupMenu homiesMenu;
-    homiesMenu.addItem("sagar", true, selected_homie == Homie::sagar, [&]
+    homiesMenu.addItem("sagar", true, processor.getCurrentHomie() == Homie::sagar, [&]
         {
-            selected_homie = Homie::sagar;
+            processor.setCurrentHomie(Homie::sagar);
         });
-    homiesMenu.addItem("swayam", true, selected_homie == Homie::swayam, [&]
+    homiesMenu.addItem("swayam", true, processor.getCurrentHomie() == Homie::swayam, [&]
         {
-            selected_homie = Homie::swayam;
+            processor.setCurrentHomie(Homie::swayam);
         });
-    homiesMenu.addItem("sakar", true, selected_homie == Homie::sakar, [&]
+    homiesMenu.addItem("sakar", true, processor.getCurrentHomie() == Homie::sakar, [&]
         {
-            selected_homie = Homie::sakar;
+            processor.setCurrentHomie(Homie::sakar);
         });
     menu->addSubMenu("Homies", homiesMenu, true);
 
