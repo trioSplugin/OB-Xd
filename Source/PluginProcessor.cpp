@@ -75,6 +75,7 @@ ObxdAudioProcessor::ObxdAudioProcessor()
     showPresetBar = config->getBoolValue("presetnavigation");
     gui_size = config->getIntValue("gui_size", 1);
     tooltipBehavior = static_cast<Tooltip>(config->getIntValue("tooltip", 1));
+    homie = static_cast<Homie>(config->getIntValue("homie", 0));
 	currentSkin = config->containsKey("skin") ? config->getValue("skin") : "Ilkka Rosma Dark";
 	currentBank = "000 - FMR OB-Xa Patch Book";
 
@@ -911,8 +912,8 @@ Homie ObxdAudioProcessor::getCurrentHomie() const
 void ObxdAudioProcessor::setCurrentHomie(const Homie homie)
 {
 	this->homie = homie;
-	//config->setValue("homie", static_cast<int>(homie));
-	//config->setNeedsToBeSaved(true);
+	config->setValue("homie", static_cast<int>(homie));
+	config->setNeedsToBeSaved(true);
 }
 
 //==============================================================================
