@@ -205,6 +205,12 @@ void ObxdAudioProcessorEditor::loadSkin (ObxdAudioProcessor& ownerFilter)
                         filterEnvelopeAmtKnob = addKnob (x, y, d, ownerFilter, ENVELOPE_AMT, "Envelope", 0);
                         mappingComps["filterEnvelopeAmtKnob"] = filterEnvelopeAmtKnob;
                     }
+
+                    if (name == "filterKeyFollowKnob") {
+                        noiseMixKnob = addKnob(x, y, d, ownerFilter, NOISEMIX, "Noise", 0);
+                        mappingComps["filterKeyFollowKnob"] = noiseMixKnob;
+                    }
+
                     if (name == "multimodeKnob"){
                         multimodeKnob = addKnob (x, y, d, ownerFilter, MULTIMODE, "Multimode", 0.5);
                         mappingComps["multimodeKnob"] = multimodeKnob;
